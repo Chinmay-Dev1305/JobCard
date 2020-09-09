@@ -1,0 +1,21 @@
+create database JobCardDB;
+
+   create table Admin(
+		AdminId int primary key identity(1,1),
+		UserId nvarchar(MAX),
+		Password nvarchar(MAX),
+  );
+ insert into Admin values('admin','admin');
+    create table JobCards(
+		Id int primary key identity(1,1),
+		Name nvarchar(MAX),
+		Email nvarchar(MAX),
+		PhoneNumber nvarchar(MAX),
+		Designation nvarchar(MAX),
+		Division nvarchar(MAX),
+		Indentor int,
+		NatureOfService nvarchar(MAX),
+		DateOfCompletion datetime,
+		CreatedDate datetime,
+isAccept bit , isReject bit , JobId nvarchar(MAX), isComplete bit
+  );
