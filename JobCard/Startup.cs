@@ -35,7 +35,7 @@ namespace JobCard
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
             services.AddDbContext<JobCardContext>(options =>
-           options.UseSqlServer(Configuration.GetConnectionString("JobCardConnection")));
+           options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\JobCard\\JobCard\\JobCard.csproj": {}
+    "D:\\job\\JobCard\\JobCard\\JobCard.csproj": {}
   },
   "projects": {
-    "E:\\JobCard\\JobCard\\JobCard.csproj": {
+    "D:\\job\\JobCard\\JobCard\\JobCard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\JobCard\\JobCard\\JobCard.csproj",
+        "projectUniqueName": "D:\\job\\JobCard\\JobCard\\JobCard.csproj",
         "projectName": "JobCard",
-        "projectPath": "E:\\JobCard\\JobCard\\JobCard.csproj",
+        "projectPath": "D:\\job\\JobCard\\JobCard\\JobCard.csproj",
         "packagesPath": "C:\\Users\\Windows\\.nuget\\packages\\",
-        "outputPath": "E:\\JobCard\\JobCard\\obj\\",
+        "outputPath": "D:\\job\\JobCard\\JobCard\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

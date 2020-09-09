@@ -73,13 +73,16 @@
 
                         </td>
                         <td>
-                            @if (x.isComplete)
+                            @if (!x.isReject)
                             {
-                                <button class="btn btn-warning">Completed</button>
-                            }
-                            else
-                            {
-                                <button onclick="location.href='@Url.Action("Complete", "Admin", new { id = x.Id })'" class="btn btn-success">Complete</button>
+                                @if (x.isComplete)
+                                {
+                                    <button class="btn btn-warning">Completed</button>
+                                }
+                                else
+                                {
+                                    <button onclick="location.href='@Url.Action("Complete", "Admin", new { id = x.Id })'" class="btn btn-success">Complete</button>
+                                }
                             }
                         </td>
                     </tr>

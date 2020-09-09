@@ -21,13 +21,20 @@ namespace JobCard.Controllers
             _logger = logger;
             _context = context;
         }
-
+        /// <summary>
+        /// User job-card form page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             var jobCard = new JobCardViewModel();
             return View(jobCard);
         }
-
+        /// <summary>
+        /// Job-card Post method
+        /// </summary>
+        /// <param name="jobCardViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Index(JobCardViewModel jobCardViewModel)
         {
@@ -67,6 +74,7 @@ namespace JobCard.Controllers
                     _logger.LogInformation("Add Job Card");
                     jobCardViewModel.Id = job.Id;
                     jobCardViewModel.JobId = job.JobId;
+                    jobCardViewModel.CreatedDate = job.CreatedDate;
                 }
 
                 return View(jobCardViewModel);
@@ -89,14 +97,19 @@ namespace JobCard.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        /// <summary>
+        /// Send-mail to admin
+        /// </summary>
+        /// <param name="jobCardViewModel"></param>
+        /// <returns></returns>
         private async Task SendMail(JobCardViewModel jobCardViewModel)
         {
             try
             {
-                string senderID = "clrirecruitsection@gmail.com";
-                string senderPassword = "SectionE1";
+                string senderID = "SenderMailId";
+                string senderPassword = "password";
                 MailMessage mail = new MailMessage();
-                mail.To.Add("clrirecruitsection@gmail.com");
+                mail.To.Add("ReceiverMailId");
                 mail.From = new MailAddress(senderID, "JOB-CARD");
                 mail.Priority = MailPriority.High;
                 mail.Subject = "Job-Card";

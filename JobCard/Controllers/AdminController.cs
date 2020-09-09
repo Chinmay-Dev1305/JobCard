@@ -26,10 +26,19 @@ namespace JobCard.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// Admin Login Page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Login()
         {
             return View();
         }
+        /// <summary>
+        /// Admin-Login-Post-Method
+        /// </summary>
+        /// <param name="loginViewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Login(LoginViewModel loginViewModel)
         {
@@ -49,6 +58,10 @@ namespace JobCard.Controllers
             return RedirectToAction(nameof(Jobs));
         }
 
+        /// <summary>
+        /// Job-List-Page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Jobs()
         {
             try
@@ -79,11 +92,20 @@ namespace JobCard.Controllers
                 throw ex;
             }
         }
+        /// <summary>
+        /// Logout-Method
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return View("Login");
         }
+        /// <summary>
+        /// Accept-Job by admin
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Accept(int id)
         {
             try
@@ -99,6 +121,11 @@ namespace JobCard.Controllers
                 throw ex;
             }
         }
+        /// <summary>
+        /// Reject-Job by admin
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Reject(int id)
         {
             try
@@ -114,6 +141,11 @@ namespace JobCard.Controllers
                 throw ex;
             }
         }
+        /// <summary>
+        /// Complete job by admin
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult Complete(int id)
         {
             try
@@ -129,6 +161,10 @@ namespace JobCard.Controllers
             }
         }
 
+        /// <summary>
+        /// Export job-list into Excel-sheet file
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public FileResult Export()
         {
@@ -177,13 +213,18 @@ namespace JobCard.Controllers
                 }
             }
         }
-
+        /// <summary>
+        /// Send mail to user
+        /// </summary>
+        /// <param name="userMail"></param>
+        /// <param name="body"></param>
+        /// <returns></returns>
         private async Task SendMail(string userMail, string body)
         {
             try
             {
-                string senderID = "clrirecruitsection@gmail.com";
-                string senderPassword = "SectionE1";
+                string senderID = "sendermail";
+                string senderPassword = "password";
                 MailMessage mail = new MailMessage();
                 mail.To.Add(userMail);
                 mail.From = new MailAddress(senderID, "JOB-CARD");
